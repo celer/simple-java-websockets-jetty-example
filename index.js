@@ -1,9 +1,10 @@
 
 var q = {};
-
-location.href.split('?')[1].split('&').forEach(function(i){
-    q[i.split('=')[0]]=i.split('=')[1];
-});
+if(document.location.href && document.location.href.split('?').length>1){
+	document.location.href.split('?')[1].split('&').forEach(function(i){
+	    q[i.split('=')[0]]=i.split('=')[1];
+	});
+}
 
 console.log(q)
 
