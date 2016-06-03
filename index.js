@@ -50,5 +50,5 @@ ws.onclose = function() {
 };
 
 ws.onerror = function(err) {
-    document.body.innerHTML+="<b>Error:"+err+"</b><br>"
+    document.body.innerHTML+="<b>Error:"+err.toString()+"</b><br>"
 };
