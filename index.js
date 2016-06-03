@@ -1,4 +1,20 @@
-var ws = new WebSocket("ws://"+document.location.hostname+":"+document.location.port+"/");
+
+var q = {};
+
+location.href.split('?')[1].split('&').forEach(function(i){
+    q[i.split('=')[0]]=i.split('=')[1];
+});
+
+console.log(q)
+
+host=q["host"]||document.location.hostname
+port=q["port"]||document.location.port
+
+url="ws://"+host+":"+port+"/"
+
+document.body.innerHTML+="WS URL "+url+"</br>"
+
+var ws = new WebSocket("ws://"+host+":"+port+"/");
 
 got=0
 ws.onopen = function() {

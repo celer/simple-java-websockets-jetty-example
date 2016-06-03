@@ -18,6 +18,10 @@ To use simply visit
 
 http://localhost:8080/
 
+You can specify the URL to connect to for websockets by providing parameters 'host' and 'port'
+
+
 It is based off of the example from here:
 
 http://jansipke.nl/websocket-tutorial-with-java-server-jetty-and-javascript-client/
+
