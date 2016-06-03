@@ -1,3 +1,4 @@
 jetty.tgz
+*.class
 jetty*
 lib
