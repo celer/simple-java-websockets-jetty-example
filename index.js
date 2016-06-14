@@ -29,7 +29,7 @@ ws.onopen = function() {
 	if (i<10){
 		setTimeout(function(){
 		sendMsg()
-		},500)
+		},100)
 	} 	
     }
 
@@ -40,7 +40,7 @@ ws.onopen = function() {
 ws.onmessage = function (evt) {
     got++
     document.body.innerHTML+="<b>Got "+evt.data+"</b><br>"
-    if(got>10){
+    if(got>=10){
     	document.body.innerHTML+="<b>Success</b><br>"
     }
 };
