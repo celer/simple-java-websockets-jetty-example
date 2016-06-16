@@ -26,7 +26,7 @@ ws.onopen = function() {
 	msg="Hello Server "+i
 	ws.send(msg);
         document.body.innerHTML+="Sent "+msg+"</br>"
-	if (i<10){
+	if (i<20){
 		setTimeout(function(){
 		sendMsg()
 		},100)
