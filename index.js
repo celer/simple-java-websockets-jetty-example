@@ -33,7 +33,9 @@ ws.onopen = function() {
 		setTimeout(function(){
 		sendMsg()
 		},delay)
-	} 	
+	} else {
+        	document.body.innerHTML+="Sent all messages</br>"
+	}
     }
 
    sendMsg()
