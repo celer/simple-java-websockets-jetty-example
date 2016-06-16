@@ -2,7 +2,7 @@
 var q = {};
 if(document.location.href && document.location.href.split('?').length>1){
 	document.location.href.split('?')[1].split('&').forEach(function(i){
-	    q[i.split('=')[0]]=i.split('=')[1];
+	    q[i.split('=')[0]]=decodeURIComponent(i.split('=')[1]);
 	});
 }
 
@@ -10,6 +10,9 @@ console.log(q)
 
 host=q["host"]||document.location.hostname
 port=q["port"]||document.location.port
+count=q["count"]||20
+msg=q["msg"]||"Message #i"
+delay=q["delay"]||100
 
 url="ws://"+host+":"+port+"/"
 
@@ -23,13 +26,13 @@ ws.onopen = function() {
     i=0
     function sendMsg(){
 	i++
-	msg="Hello Server "+i
-	ws.send(msg);
-        document.body.innerHTML+="Sent "+msg+"</br>"
-	if (i<20){
+	m=msg.replace("\#i",i)
+	ws.send(m);
+        document.body.innerHTML+="Sent "+m+"</br>"
+	if (i<count){
 		setTimeout(function(){
 		sendMsg()
-		},100)
+		},delay)
 	} 	
     }
 
@@ -40,7 +43,7 @@ ws.onopen = function() {
 ws.onmessage = function (evt) {
     got++
     document.body.innerHTML+="<b>Got "+evt.data+"</b><br>"
-    if(got>=10){
+    if(got>=count){
     	document.body.innerHTML+="<b>Success</b><br>"
     }
 };
