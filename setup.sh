@@ -3,7 +3,7 @@ if [ ! -x lib ]
 then
 	if [ ! -f jetty.tgz ]
 	then
-		wget -O jetty.tgz "http://eclipse.org/downloads/download.php?file=/jetty/stable-9/dist/jetty-distribution-9.3.9.v20160517.tar.gz&r=1"
+		wget -O jetty.tgz "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/9.3.9.v20160517/jetty-distribution-9.3.9.v20160517.tar.gz"
 	fi
 
 	tar -zxvf jetty.tgz 
